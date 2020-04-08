@@ -1,80 +1,46 @@
-<!DOCTYPE html>
-<html lang="en" style="font-family: Verdana, Arial, serif; height: 100%">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!--<link rel="stylesheet" href="web/css/genericStyle.css">-->
-  <title>Misure Appartamenti</title>
+  <meta charset="utf-8"/>
+  <!-- jQuery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="css/main_flex_layout.css">
+  <link rel="stylesheet" type="text/css" href="css/main_page_style.css">
+  <title>Apartment Size Calculator</title>
 </head>
-<body style="margin: 0; height: 100%; display: flex; flex-direction: column">
-<header style="flex-shrink: 0; text-align: center; background-color: #2b2b2b">
-  <div style="color: whitesmoke">
-    <h1>Misure Appartamenti</h1>
-  </div>
-</header>
-<main id="main-body" style="flex-grow: 1">
-  <div class="line" style="padding: 25px; display: flex; flex-direction: row">
-    <div style="flex-grow: 2" class="name">
-      <label for="inputName0">Nome Stanza: </label>
-      <input type="text" id="inputName0" placeholder="Inserisci nome..."/>
+<body>
+  <header class="bg-dark">
+    Apartment Size Calculator
+  </header>
+  <main class="bg-dim">
+    <div id="dummyLine" class="hidden">
+      <div class="row" data-index="0">
+        <div class="room-name col-2">
+          <label for="inputName0">Nome Stanza: </label>
+          <input type="text" id="inputName0" placeholder="Nome locale..."/>
+        </div>
+        <div class="room-width col-2">
+          <label for="inputWidth0">Dimensione 1: </label>
+          <input type="number" step="0.1" id="inputWidth0"/>
+        </div>
+        <div class="room-height col-2">
+          <label for="inputHeight0">Dimensione 2: </label>
+          <input type="number" step="0.1" id="inputHeight0"/>
+        </div>
+        <div class="room-area col-1">
+          Area Totale: <span id="totalArea0">N.D.</span>
+        </div>
+      </div>
     </div>
-    <div style="flex-grow: 2" class="width">
-      <label for="inputWidth0">Dimensione 1: </label>
-      <input type="number" id="inputWidth0"/>
+    <div id="apartmentRooms">
     </div>
-    <div style="flex-grow: 2" class="length">
-      <label for="inputLength0">Dimensione 2: </label>
-      <input type="number" id="inputLength0"/>
+    <div id="addRoomButton" class="big-button">
+        <h2>+ Aggiungi nuovo ambiente</h2>
     </div>
-    <div style="flex-grow: 1">
-      Area Totale: <span id="totalArea0">0</span>
-    </div>
-  </div>
-  <div class="buttonDiv" style="display: flex; flex-direction: row">
-    <button id="newLine"
-            style="flex-grow: 1; margin: 5px; border-radius: 7px;
-            border-color: steelblue; border-top-color: lightskyblue;
-            border-left-color: lightskyblue; background-color: dodgerblue;
-            font-size: x-large; font-weight: bold; padding: 20px;
-            color: antiquewhite" onclick="createNewLine()">
-      + Aggiungi Nuovo Ambiente
-    </button>
-  </div>
-</main>
-<footer style="flex-shrink: 0; text-align: center; background-color: #2b2b2b;">
-  <div style="color: whitesmoke;">
-    <h5>Copyright © 2020 by Heirukichi</h5>
-  </div>
-</footer>
+  </main>
+  <footer class="bg-dark">
+    Copyright © 2020 by Tommaso Marchesani
+  </footer>
 </body>
-<script>
-  //---------------------------------------------------------------------------
-  // * Replace New Line IDs
-  //---------------------------------------------------------------------------
-  function replaceLineIDs(newLine) {
-    newLine.innerHTML = prototypeLine.innerHTML;
-    newLine.innerHTML =
-        newLine.innerHTML.replace(/inputName0/gi, "inputName" + lineIndex);
-    newLine.innerHTML =
-        newLine.innerHTML.replace(/inputWidth0/gi, "inputWidth" + lineIndex);
-    newLine.innerHTML =
-        newLine.innerHTML.replace(/inputLength0/gi, "inputLength" + lineIndex);
-    newLine.innerHTML =
-        newLine.innerHTML.replace(/totalArea0/gi, "totalArea" + lineIndex);
-  } // Replace New Line IDs
-  //---------------------------------------------------------------------------
-  // * Create New Line
-  //---------------------------------------------------------------------------
-  function createNewLine(event) {
-    var newLine = prototypeLine.cloneNode();
-    replaceLineIDs(newLine);
-    prototypeLine.parentNode.insertBefore(newLine, buttonLine);
-    lineIndex += 1;
-  } // Create New Line
-  //---------------------------------------------------------------------------
-  // Variables Declaration
-  //---------------------------------------------------------------------------
-  var prototypeLine = document.getElementsByClassName("line")[0];
-  var buttonLine = document.getElementsByClassName("buttonDiv")[0];
-  var lineIndex = 1;
-</script>
 </html>

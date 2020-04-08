@@ -1,0 +1,73 @@
+/*
+ * Alignment rules
+ */
+
+header {
+  text-align: center;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+footer {
+  text-align: center;
+  font-size: small;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col-1 {
+  min-width: 15%;
+  flex-shrink: 1;
+}
+
+.col-2 {
+  flex-grow: 2;
+}
+
+/*
+ * Color-related rules
+ */
+
+.bg-dark {
+  color: whitesmoke;
+  background-color: #1b1b1b;
+}
+
+.bg-dim {
+  color: whitesmoke;
+  background-color: #313131;
+}
+
+.big-button {
+  text-align: center;
+  color: whitesmoke;
+  font-weight: bold;
+  background-color: #4080ff;
+  border: 1px solid #409aff;
+  border-bottom-color: #4040ff;
+  border-right-color: #4040ff;
+  border-radius: 5px;
+  margin-top: 25px;
+  padding: 7px;
+}
+
+.big-button:hover {
+  background-color: #4090ff;
+  cursor: pointer;
+  border: 1px solid #4060ff;
+  border-right-color: #40a3ff;
+  border-bottom-color: #40a3ff;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+/*
+ * Visibility-related rules
+ */
+
+.hidden {
+  display: none !important;
+}
