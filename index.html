@@ -3,6 +3,8 @@
   <meta charset="utf-8"/>
   <!-- jQuery -->
   <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="js/room.js"></script>
   <script src="js/main.js"></script>
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/main_flex_layout.css">
@@ -14,6 +16,14 @@
     Apartment Size Calculator
   </header>
   <main class="bg-dim">
+    <div id="storedData" class="hidden">
+      <!-- Total Rows -->
+      <label for="totalRows">Stanze Create: </label>
+      <input type="number" id="totalRows" placeholder="0"/>
+      <!-- Rooms Data -->
+      <label for "roomsData">Nomi Stanze: </label>
+      <input type="text" id="roomsData"/>
+    </div>
     <div id="dummyLine" class="hidden">
       <div class="row" data-index="0">
         <div class="room-name col-2">
