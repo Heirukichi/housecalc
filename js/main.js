@@ -1,4 +1,5 @@
 var roomsArray = [];
+
 //-----------------------------------------------------------------------------
 // * Add Extra Room Line
 //-----------------------------------------------------------------------------
@@ -47,6 +48,18 @@ function updateRoomData(e) {
 }
 
 //-----------------------------------------------------------------------------
+// * Download Object As JSON File
+//-----------------------------------------------------------------------------
+function downloadObjectAsJson(){
+  let dataStr = "data:text/json;charset=utf-8," +
+      encodeURIComponent(JSON.stringify(roomsArray));
+  let downloadAnchorNode = document.getElementById("downloadAnchorElem1");
+  downloadAnchorNode.setAttribute("href", dataStr);
+  downloadAnchorNode.setAttribute("download", "rooms.json");
+  downloadAnchorNode.click();
+}
+
+//-----------------------------------------------------------------------------
 // * Add Event Listeners
 //-----------------------------------------------------------------------------
 function addListeners() {
@@ -60,7 +73,12 @@ function addListeners() {
       "blur",
       "input",
       updateRoomData
-  )
+  );
+  $(document).on(
+      "click",
+      "#downloadAnchorElem",
+      downloadObjectAsJson
+  );
 }
 
 //-----------------------------------------------------------------------------
