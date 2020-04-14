@@ -1,4 +1,4 @@
-var roomsArray = [];
+var dataArray = [];
 
 //-----------------------------------------------------------------------------
 // * Add Extra Room Line
@@ -8,7 +8,7 @@ function addRoomLine() {
   var dummyLine = $("#dummyLine");
   var rooms = $("#apartmentRooms");
   var rowIndex = rooms.children().length + 1;
-  roomsArray[rowIndex] = new Room(rowIndex);
+  dataArray[rowIndex] = new Room(rowIndex);
   var htmlText = dummyLine.html().replace(/0/gi, rowIndex);
   rooms.append(htmlText);
   $("#apartmentRooms > .hidden").removeClass("hidden");
@@ -41,22 +41,21 @@ function calculateTotalArea(e) {
 function updateRoomData(e) {
   var currentRoomDiv = $(this).parent().parent();
   var index = currentRoomDiv.data("index");
-  roomsArray[index].width = Number($("#inputWidth" + index).val()) || 0;
-  roomsArray[index].height = Number($("#inputHeight" + index).val()) || 0;
-  roomsArray[index].name = $("#inputName" + index).val() || '';
-  $("#storedData #roomsData").val(JSON.stringify(roomsArray));
+  dataArray[index].width = Number($("#inputWidth" + index).val()) || 0;
+  dataArray[index].height = Number($("#inputHeight" + index).val()) || 0;
+  dataArray[index].name = $("#inputName" + index).val() || '';
 }
 
 //-----------------------------------------------------------------------------
 // * Download Object As JSON File
 //-----------------------------------------------------------------------------
-function downloadObjectAsJson(){
+function downloadObjectAsJson() {
   let dataStr = "data:text/json;charset=utf-8," +
-      encodeURIComponent(JSON.stringify(roomsArray));
-  let downloadAnchorNode = document.getElementById("downloadAnchorElem1");
-  downloadAnchorNode.setAttribute("href", dataStr);
-  downloadAnchorNode.setAttribute("download", "rooms.json");
-  downloadAnchorNode.click();
+      encodeURIComponent(JSON.stringify(dataArray));
+  let dlAnchor = $("#downloadAnchorElem1");
+  dlAnchor.attr("href", dataStr);
+  dlAnchor.attr("download", "rooms.json");
+  dlAnchor[0].click();
 }
 
 //-----------------------------------------------------------------------------
