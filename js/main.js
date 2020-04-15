@@ -1,19 +1,25 @@
 var dataArray = [];
+var loading = false;
 
 //-----------------------------------------------------------------------------
 // * Add Extra Room Line
 //-----------------------------------------------------------------------------
 function addRoomLine() {
-  console.log("Click!");
-  var dummyLine = $("#dummyLine");
-  var rooms = $("#apartmentRooms");
-  var rowIndex = rooms.children().length + 1;
-  dataArray[rowIndex] = new Room(rowIndex);
-  var htmlText = dummyLine.html().replace(/0/gi, rowIndex);
+  let dummyLine = $("#dummyLine");
+  let rooms = $("#apartmentRooms");
+  let rowIndex = rooms.children().length + 1;
+  if (!loading) {
+    dataArray[rowIndex - 1] = new Room(rowIndex);
+  }
+  let htmlText = dummyLine.html().replace(/0/gi, rowIndex);
   rooms.append(htmlText);
   $("#apartmentRooms > .hidden").removeClass("hidden");
-  $("#storedData #totalRows").val(rowIndex);
-  console.log($("#storedData #totalRows").val());
+  if (loading) {
+    $("#inputWidth" + rowIndex).val(dataArray[rowIndex - 1].width);
+    $("#inputHeight" + rowIndex).val(dataArray[rowIndex - 1].height);
+    $("#inputName" + rowIndex).val(dataArray[rowIndex - 1].name);
+    calculateRowArea(rowIndex);
+  }
 }
 
 //-----------------------------------------------------------------------------
@@ -40,10 +46,10 @@ function calculateTotalArea(e) {
 //-----------------------------------------------------------------------------
 function updateRoomData(e) {
   var currentRoomDiv = $(this).parent().parent();
-  var index = currentRoomDiv.data("index");
-  dataArray[index].width = Number($("#inputWidth" + index).val()) || 0;
-  dataArray[index].height = Number($("#inputHeight" + index).val()) || 0;
-  dataArray[index].name = $("#inputName" + index).val() || '';
+  var index = Number(currentRoomDiv.data("index"));
+  dataArray[index - 1].width = Number($("#inputWidth" + index).val()) || 0;
+  dataArray[index - 1].height = Number($("#inputHeight" + index).val()) || 0;
+  dataArray[index - 1].name = $("#inputName" + index).val() || '';
 }
 
 //-----------------------------------------------------------------------------
@@ -59,6 +65,19 @@ function downloadObjectAsJson() {
 }
 
 //-----------------------------------------------------------------------------
+// * Upload Data From JSON File
+//-----------------------------------------------------------------------------
+function uploadDataFromJson() {
+  let jsonText = $("#roomsData").val();
+  loading = true;
+  dataArray = JSON.parse(jsonText);
+  for (var i = 0; i < dataArray.length; i++) {
+    addRoomLine();
+  }
+  loading = false;
+}
+
+//-----------------------------------------------------------------------------
 // * Add Event Listeners
 //-----------------------------------------------------------------------------
 function addListeners() {
@@ -70,13 +89,18 @@ function addListeners() {
   );
   $(document).on(
       "blur",
-      "input",
+      "#apartmentRooms input",
       updateRoomData
   );
   $(document).on(
       "click",
       "#downloadAnchorElem",
       downloadObjectAsJson
+  );
+  $(document).on(
+    "click",
+    "#uploadRoomsData",
+    uploadDataFromJson
   );
 }
 
