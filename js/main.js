@@ -60,7 +60,7 @@ function downloadObjectAsJson() {
       encodeURIComponent(JSON.stringify(dataArray));
   let dlAnchor = $("#downloadAnchorElem1");
   dlAnchor.attr("href", dataStr);
-  dlAnchor.attr("download", "rooms.json");
+  dlAnchor.attr("download", "rooms.txt");
   dlAnchor[0].click();
 }
 
