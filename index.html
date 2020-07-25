@@ -25,6 +25,7 @@
       <button id="downloadAnchorElem">Scarica</button>
       <a id="downloadAnchorElem1" style="display: none" href=""></a>
     </div>
+    <!-- Dummy Line -->
     <div id="dummyLine" class="hidden">
       <div class="row" data-index="0">
         <div class="room-name col-2">
@@ -43,15 +44,192 @@
           Area Totale: <span id="totalArea0">N.D.</span>
         </div>
       </div>
-    </div>
-    <div id="apartmentRooms">
-    </div>
-    <div id="addRoomButton" class="big-button">
+    </div> <!-- Dummy Line -->
+    <!-- Generic Data -->
+    <div id="genericData" class="container">
+      <h3>Dati Generici</h3><hr>
+      <div class="row boxed-row top-padding">
+        <div class="first-name col-6 half-width input-box">
+          <label for="inputFirstName">Nome: </label>
+          <input type="text" id="inputFirstName" placeholder="Nome"/>
+        </div>
+        <div class="last-name col-6 half-width input-box">
+          <label for="inputLastName">Cognome: </label>
+          <input type="text" id="inputLastName" placeholder="Cognome"/>
+        </div>
+      </div>
+      <div class="row boxed-row top-padding">
+        <div class="contact col-6 half-width input-box">
+          <label for="inputContact">Recapito: </label>
+          <input type="text" id="inputContact" placeholder="Telefono/e-mail"/>
+        </div>
+        <div class="address col-6 half-width input-box">
+          <label for="inputAddress">Indirizzo: </label>
+          <input type="text" id="inputAddress" placeholder="Indirizzo Postale"/>
+        </div>
+      </div>
+    </div> <!-- Generic Data -->
+    <!-- Apartment Details -->
+    <div id="apartmentDetails" class="container">
+      <h3>Dettagli immobile</h3><hr>
+      <div class="row boxed-row top-padding">
+        <!-- Apartment Type -->
+        <div class="apartment-type col-6 half-width input-box-large-title">
+          <label for="inputApartmentType">Tipo unità immobiliare: </label>
+          <select id="inputApartmentType">
+          </select>
+        </div> <!-- Apartment Type -->
+        <!-- Obtained Through -->
+        <div class="obtained-through col-6 half-width input-box">
+          <label for="obtainedThrough">Provenienza: </label>
+          <select id="obtainedThrough">
+          </select>
+        </div> <!-- Obtained Through -->
+      </div>
+      <div class="row boxed-row top-padding">
+        <!-- Apartment Description -->
+        <div class="description large-input-box">
+          <label for="apartmentDescription">Descrizione: </label>
+          <textarea id="apartmentDescription" rows="5"
+                    placeholder="Descrizione dell'appartamento."></textarea>
+        </div> <!-- Apartment Description -->
+      </div>
+      <div class="row boxed-row top-padding">
+        <!-- Apartment Current State -->
+        <div class="current-state col-6 half-width input-box-large-title">
+          <label for="currentState">Stato di conservazione: </label>
+          <select id="currentState">
+          </select>
+        </div> <!-- Apartment Current State -->
+        <!-- Heating System -->
+        <div class="heating-system col-6 half-width input-box-large-title">
+          <label for="heatingSystem">Tipo di Riscaldamento: </label>
+          <select id="heatingSystem">
+          </select>
+        </div> <!-- Heating System -->
+      </div>
+      <div class="row boxed-row top-padding">
+        <!-- Floor -->
+        <div class="floor xl-input-box">
+          <label for="apartmentFloor">Pavimentazione: </label>
+          <textarea id="apartmentFloor" rows="2"
+                    placeholder="Tipo di pavimentazione."></textarea>
+        </div> <!-- Floor -->
+      </div>
+      <div class="row boxed-row top-padding">
+        <!-- Windows -->
+        <div class="windows xl-input-box">
+          <label for="apartmentWindows">Infissi: </label>
+          <textarea id="apartmentWindows" rows="2"
+                    placeholder="Tipo di infissi."></textarea>
+        </div> <!-- Windows -->
+      </div>
+      <div class="row boxed-row top-padding">
+        <!-- Last Maintenance Data -->
+        <div class="maintenance xl-input-box">
+          <label for="lastMaintenance">Ultimi lavori eseguiti: </label>
+          <textarea id="lastMaintenance" rows="5"
+                    placeholder="Ultimi lavori eseguiti."></textarea>
+        </div> <!-- Last Maintenance Data -->
+      </div>
+    </div> <!-- Apartment Details -->
+    <!-- Apartment Rooms -->
+    <div class="container">
+      <div id="apartmentRooms">
+        <h3>Dati Ambienti</h3><hr>
+      </div>
+      <!-- Add Room Button -->
+      <div id="addRoomButton" class="big-button">
         <h2>+ Aggiungi nuovo ambiente</h2>
-    </div>
+      </div> <!-- Add Room Button -->
+    </div> <!-- Apartment Rooms -->
+    <!-- Certifications -->
+    <div id="certifications" class="container">
+      <h3>Certificazioni</h3><hr>
+      <div class="row boxed-row top-padding">
+        <div class="electric-system col-4">
+          <label for="electricSystemCertification">
+            Certificazione Impianto Elettrico:
+          </label>
+          <input id="electricSystemCertification" type="checkbox"/>
+        </div>
+        <div class="water-system col-4">
+          <label for="waterSystemCertification">
+            Certificazione Impianto Idraulico:
+          </label>
+          <input id="waterSystemCertification" type="checkbox"/>
+        </div>
+        <div class="living col-4">
+          <label for="livingCertification">
+            Certificato di agibilità/abitabilità:
+          </label>
+          <input id="livingCertification" type="checkbox"/>
+        </div>
+      </div>
+    </div> <!-- Certifications -->
+    <!-- Building Data -->
+    <div id="building-data" class="container">
+      <h3>Dettagli Stabile</h3><hr>
+      <!-- Generic Details -->
+      <div class="row boxed-row top-padding">
+        <div class="lift col-3">
+          <label for="elevator">
+            Ascensore:
+          </label>
+          <input id="elevator" type="checkbox"/>
+        </div>
+        <div class="door-keeper col-3">
+          <label for="doorKeeper">
+            Portineria:
+          </label>
+          <input id="doorKeeper" type="checkbox"/>
+        </div>
+        <div class="garden col-3">
+          <label for="outdoorGarden">
+            Giardino:
+          </label>
+          <input id="outdoorGarden" type="checkbox"/>
+        </div>
+        <div class="parking-spots col-3">
+          <label for="parkingSpots">
+            Parcheggi comuni:
+          </label>
+          <input id="parkingSpots" type="checkbox"/>
+        </div>
+      </div> <!-- Generic Details -->
+      <!-- Expenses -->
+      <div class="row boxed-row top-padding">
+        <div class="col-6 input-box-large-title">
+          <label for="expenses">Spese condominiali:</label>
+          <input type="number" placeholder="600.00"/>
+        </div>
+        <div class="col-6 input-box">
+          <label for="period">Cadenza: </label>
+          <select id="period">
+            <option value="monthly">Mensile</option>
+            <option value="two-months">Bimestrale</option>
+            <option value="three-months">Trimestrale</option>
+            <option value="four-months">Quadrimestrale</option>
+            <option value="six-months">Semestrale</option>
+            <option value="yearly">Annuale</option>
+          </select>
+        </div>
+      </div> <!-- Expenses -->
+    </div> <!-- Building Data -->
+    <!-- Footer Notes -->
+    <div id="footerNotes" class="container">
+      <h3>Extra</h3><hr>
+      <div class="row boxed-row top-padding">
+        <div class="maintenance xl-input-box">
+          <label for="finalNotes">Annotazioni Finali: </label>
+          <textarea id="finalNotes" rows="5"
+                    placeholder="Non sono presenti annotazini."></textarea>
+        </div>
+      </div>
+    </div> <!-- Footer Notes -->
   </main>
   <footer class="bg-dark">
-    Copyright © 2020 by Tommaso Marchesani
+    Copyright © 2020 by Heirukichi
   </footer>
 </body>
 </html>

@@ -27,6 +27,101 @@ footer {
   flex-grow: 2;
 }
 
+.col-3 {
+  flex-grow: 3;
+}
+
+.col-4 {
+  flex-grow: 4;
+}
+
+.col-5 {
+  flex-grow: 5;
+}
+
+.col-6 {
+  flex-grow: 6
+}
+
+.boxed-row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.top-padding {
+  padding-top: 15px;
+}
+
+.half-width {
+  max-width: 50%;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-box label {
+  flex-grow: 1;
+  max-width: 30%;
+}
+
+.input-box input {
+  flex-grow: 3;
+  max-width: 68%;
+}
+
+.input-box select {
+  flex-grow: 3;
+  max-width: 68%;
+}
+
+.input-box-large-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-box-large-title label {
+  flex-grow: 2;
+  max-width: 50%;
+}
+
+.input-box-large-title input {
+  flex-grow: 2;
+  max-width: 48%;
+}
+
+.input-box-large-title select {
+  flex-grow: 2;
+  max-width: 48%;
+}
+
+.large-input-box {
+  width: 99%;
+}
+
+textarea {
+  font-family: verdana, sans-serif;
+  width: 100%;
+}
+
+.large-input-box textarea {
+  margin-top: 5px;
+}
+
+.xl-input-box {
+  width: 99%;
+}
+
+.xl-input-box input {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.xl-input-box textarea {
+  margin-top: 5px;
+}
+
 /*
  * Color-related rules
  */
@@ -62,6 +157,13 @@ footer {
   border-bottom-color: #40a3ff;
   padding-top: 8px;
   padding-bottom: 6px;
+}
+
+.container {
+  background-color: #4f4f4f;
+  border: 1px solid #3c3c3c;
+  margin: 10px;
+  padding: 0 15px 15px 15px;
 }
 
 /*
