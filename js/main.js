@@ -29,8 +29,20 @@ function calculateRowArea(rowIndex) {
   var width = Number($("#inputWidth" + rowIndex).val()) || 0;
   var height = Number($("#inputHeight" + rowIndex).val()) || 0;
   var area = (width * height).toFixed(2);
-  $("#totalArea" + rowIndex).html(area);
+  $("#totalArea" + rowIndex).val(area);
   return area;
+}
+
+//-----------------------------------------------------------------------------
+// * Calculate Total Apartment Size
+//-----------------------------------------------------------------------------
+function calculateTotalApartmentSize() {
+  let totalArea = 0.0;
+  dataArray.forEach((item, i) => {
+    let area = (item.width * item.height) || 0;
+    totalArea += area;
+  });
+  $("#roomsTotalSize").val(totalArea);
 }
 
 //-----------------------------------------------------------------------------
@@ -50,6 +62,7 @@ function updateRoomData(e) {
   dataArray[index - 1].width = Number($("#inputWidth" + index).val()) || 0;
   dataArray[index - 1].height = Number($("#inputHeight" + index).val()) || 0;
   dataArray[index - 1].name = $("#inputName" + index).val() || '';
+  calculateTotalApartmentSize();
 }
 
 //-----------------------------------------------------------------------------
@@ -57,7 +70,7 @@ function updateRoomData(e) {
 //-----------------------------------------------------------------------------
 function downloadObjectAsJson() {
   let dataStr = "data:text/json;charset=utf-8," +
-      encodeURIComponent(JSON.stringify(dataArray));
+    encodeURIComponent(JSON.stringify(dataArray));
   let dlAnchor = $("#downloadAnchorElem1");
   dlAnchor.attr("href", dataStr);
   dlAnchor.attr("download", "rooms.txt");
@@ -83,19 +96,19 @@ function uploadDataFromJson() {
 function addListeners() {
   $("#addRoomButton").click(addRoomLine);
   $(document).on(
-      "blur",
-      ".room-width input, .room-height input",
-      calculateTotalArea
+    "blur",
+    ".room-width input, .room-height input",
+    calculateTotalArea
   );
   $(document).on(
-      "blur",
-      "#apartmentRooms input",
-      updateRoomData
+    "blur",
+    "#apartmentRooms input",
+    updateRoomData
   );
   $(document).on(
-      "click",
-      "#downloadAnchorElem",
-      downloadObjectAsJson
+    "click",
+    "#downloadAnchorElem",
+    downloadObjectAsJson
   );
   $(document).on(
     "click",
@@ -108,7 +121,6 @@ function addListeners() {
 // * Setup Page
 //-----------------------------------------------------------------------------
 function setupPage() {
-
   addListeners();
 }
 

@@ -122,6 +122,10 @@ textarea {
   margin-top: 5px;
 }
 
+#roomsTotalSize {
+  max-width: 80px;
+}
+
 /*
  * Color-related rules
  */

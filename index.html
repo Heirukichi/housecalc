@@ -41,7 +41,8 @@
           <input type="number" step="0.1" id="inputHeight0"/>
         </div>
         <div class="room-area col-1">
-          Area Totale: <span id="totalArea0">N.D.</span>
+          Area Totale:
+          <input id="totalArea0" type="number" readonly/>
         </div>
       </div>
     </div> <!-- Dummy Line -->
@@ -139,6 +140,15 @@
         <h3>Dati Ambienti</h3><hr>
       </div>
       <!-- Add Room Button -->
+      <div id="totalSize">
+        <div class="row boxed-row top-padding">
+          <label for="roomsTotalSize">
+            Area Totale Appartamento:
+          </label>
+          <input id="roomsTotalSize" type="number" value="0.00" readonly/>
+          mq
+        </div>
+      </div>
       <div id="addRoomButton" class="big-button">
         <h2>+ Aggiungi nuovo ambiente</h2>
       </div> <!-- Add Room Button -->
@@ -149,19 +159,25 @@
       <div class="row boxed-row top-padding">
         <div class="electric-system col-4">
           <label for="electricSystemCertification">
-            Certificazione Impianto Elettrico:
+            Impianto Elettrico:
           </label>
           <input id="electricSystemCertification" type="checkbox"/>
         </div>
         <div class="water-system col-4">
           <label for="waterSystemCertification">
-            Certificazione Impianto Idraulico:
+            Impianto Idraulico:
           </label>
           <input id="waterSystemCertification" type="checkbox"/>
         </div>
         <div class="living col-4">
+          <label for="heatingSystemCertification">
+            Impianto Termico:
+          </label>
+          <input id="heatingSystemCertification" type="checkbox"/>
+        </div>
+        <div class="living col-4">
           <label for="livingCertification">
-            Certificato di agibilità/abitabilità:
+            Agibilità/Abitabilità:
           </label>
           <input id="livingCertification" type="checkbox"/>
         </div>
