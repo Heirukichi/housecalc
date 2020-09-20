@@ -49,6 +49,7 @@
     <!-- Generic Data -->
     <div id="genericData" class="container">
       <h3>Dati Generici</h3><hr>
+      <!-- First and Last Name -->
       <div class="row boxed-row top-padding">
         <div class="first-name col-6 half-width input-box">
           <label for="inputFirstName">Nome: </label>
@@ -58,17 +59,26 @@
           <label for="inputLastName">Cognome: </label>
           <input type="text" id="inputLastName" placeholder="Cognome"/>
         </div>
-      </div>
+      </div> <!-- First and Last Name -->
+      <!-- Phone and E-mail -->
       <div class="row boxed-row top-padding">
-        <div class="contact col-6 half-width input-box">
-          <label for="inputContact">Recapito: </label>
-          <input type="text" id="inputContact" placeholder="Telefono/e-mail"/>
+        <div class="phone col-6 half-width input-box">
+          <label for="inputPhone">Telefono: </label>
+          <input type="text" id="inputPhone" placeholder="Numero di telefono"/>
         </div>
-        <div class="address col-6 half-width input-box">
+        <div class="email col-6 half-width input-box">
+          <label for="inputEmail">E-mail: </label>
+          <input type="text" id="inputEmail" placeholder="Indirizzo e-mail"/>
+        </div>
+      </div> <!-- Phone and E-mail -->
+      <!-- Address -->
+      <div class="row boxed-row top-padding">
+        <div class="address large-input-box">
           <label for="inputAddress">Indirizzo: </label>
-          <input type="text" id="inputAddress" placeholder="Indirizzo Postale"/>
+          <textarea id="inputAddress" rows="1"
+                    placeholder="Indirizzo dell'appartamento"></textarea>
         </div>
-      </div>
+      </div> <!-- Address -->
     </div> <!-- Generic Data -->
     <!-- Apartment Details -->
     <div id="apartmentDetails" class="container">
@@ -78,12 +88,27 @@
         <div class="apartment-type col-6 half-width input-box-large-title">
           <label for="inputApartmentType">Tipo unità immobiliare: </label>
           <select id="inputApartmentType">
+            <option value="0" class="option-placeholder" selected>
+              Scegli il tipo di unità immobiliare...
+            </option>
+            <option value="1">Appartamento</option>
+            <option value="2">Ufficio</option>
+            <option value="3">Negozio</option>
+            <option value="4">Deposito/Magazzino</option>
+            <option value="5">Altro</option>
           </select>
         </div> <!-- Apartment Type -->
         <!-- Obtained Through -->
         <div class="obtained-through col-6 half-width input-box">
           <label for="obtainedThrough">Provenienza: </label>
           <select id="obtainedThrough">
+            <option value="0" class="option-placeholder" selected>
+              Scegli la provenienza dell'immobile...
+            </option>
+            <option value="1">Compravendita</option>
+            <option value="2">Successione</option>
+            <option value="3">Donazione</option>
+            <option value="4">Altro</option>
           </select>
         </div> <!-- Obtained Through -->
       </div>
@@ -100,12 +125,26 @@
         <div class="current-state col-6 half-width input-box-large-title">
           <label for="currentState">Stato di conservazione: </label>
           <select id="currentState">
+            <option value="0" class="option-placeholder" selected>
+              Scegli lo stato di conservazione...
+            </option>
+            <option value="1">Nuovo</option>
+            <option value="2">Ristrutturato</option>
+            <option value="3">Buono</option>
+            <option value="4">Da Ristrutturare</option>
           </select>
         </div> <!-- Apartment Current State -->
         <!-- Heating System -->
         <div class="heating-system col-6 half-width input-box-large-title">
           <label for="heatingSystem">Tipo di Riscaldamento: </label>
           <select id="heatingSystem">
+            <option value="0" class="option-placeholder" selected>
+              Scegli il tipo di riscaldamento...
+            </option>
+            <option value="1">Autonomo</option>
+            <option value="2">Centralizzato</option>
+            <option value="3">Pompa di calore</option>
+            <option value="4">Assente</option>
           </select>
         </div> <!-- Heating System -->
       </div>

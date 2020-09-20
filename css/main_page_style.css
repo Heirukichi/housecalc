@@ -103,6 +103,7 @@ footer {
 textarea {
   font-family: verdana, sans-serif;
   width: 100%;
+  resize: none;
 }
 
 .large-input-box textarea {
@@ -175,5 +176,9 @@ textarea {
  */
 
 .hidden {
+  display: none !important;
+}
+
+.option-placeholder {
   display: none !important;
 }
